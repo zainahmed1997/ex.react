@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+
+function CounterDisplay ({ count }) {
+   return <h2> {count}</h2>;
+ };
+ 
+
+
+ 
+
+
+ 
+ 
+ function Counter  ({ valoreIniziale, decremento })  {
+   const [contatore, setContatore] = useState(valoreIniziale);
+ 
+   const decrementaContatore = () => {
+     setContatore(prevCount => prevCount - decremento);
+   };
+ 
+   const resettaContatore = () => {
+     setContatore(valoreIniziale);
+   };
+ 
+   return (
+     <div>
+      
+       <CounterDisplay count={contatore} />
+ 
+      
+       <button onClick={decrementaContatore}>Decrementa</button>
+ 
+       <button onClick={resettaContatore}>Resetta</button>
+     </div>
+   );
+ };
+ 
+ 
+
+ 
+ function App ()  {
+   return (
+     <div>
+       
+       {/* Renderizza il componente Counter e passa il valore iniziale e l'ammontare di decremento come props */}
+       <Counter valoreIniziale={0} decremento={1} />
+     </div>
+   );
+ };
+ 
+export default App;
